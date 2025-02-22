@@ -10,6 +10,32 @@ const commandPosts = await getCollection("commands");
 const sortedPosts = commandPosts.sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const latestCommands = sortedPosts.slice(0, 3);
+
+const tools = [
+	{
+		title: "Timeline",
+		description:
+			"Follow the journey of building this website, from the first commit to the latest feature.",
+		href: "/timeline",
+		icon: "📅",
+	},
+	{
+		title: "Chat",
+		description:
+			"See how AI assists in building this website through natural conversation.",
+		href: "/chat",
+		icon: "💬",
+	},
+	{
+		title: "Process",
+		description:
+			"Understand how we build features with AI assistance, from idea to implementation.",
+		href: "/process",
+		icon: "🔄",
+	},
+];
 ---
 
 <Layout title="AI + Tim Cane">
@@ -103,13 +129,41 @@ const sortedPosts = commandPosts.sort(
 				</div>
 			</section>
 
+			<!-- Tools Section -->
+			<section>
+				<h2 class="text-2xl font-bold mb-6 text-text">
+					Explore the Build
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					{
+						tools.map((tool) => (
+							<a
+								href={tool.href}
+								class="group p-6 bg-card border border-card-border rounded-2xl
+								   hover:shadow-lg transition-all flex flex-col"
+							>
+								<div class="flex items-center gap-4 mb-4">
+									<span class="text-3xl">{tool.icon}</span>
+									<h3 class="text-xl font-semibold text-text group-hover:text-accent transition-colors">
+										{tool.title}
+									</h3>
+								</div>
+								<p class="text-text-muted">
+									{tool.description}
+								</p>
+							</a>
+						))
+					}
+				</div>
+			</section>
+
 			<section>
 				<h2 class="text-3xl font-bold mb-8 animated-gradient-text">
 					Building Process
 				</h2>
 				<div class="grid md:grid-cols-2 gap-6">
 					{
-						sortedPosts.map((post) => (
+						latestCommands.map((post) => (
 							<CommandPostTile
 								post={post}
 								href={`/commands/${post.slug}`}

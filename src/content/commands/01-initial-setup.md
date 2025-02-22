@@ -16,11 +16,11 @@ filesChanged: [
 
 # The Beginning of Our AI Journey
 
-Hey there! 👋 Let me tell you about how this project started. It began with a simple yet ambitious idea: what if we created an entire portfolio website through conversation with AI? Not just the code, but every single decision, from architecture to design to content.
+Hey there! 👋 Let me tell you about how this project started. It began with a simple yet ambitious idea: what if we created an entire website through conversation with AI? Not just the code, but every single decision, from architecture to design to content.
 
 ## The Initial Conversation
 
-The journey started with a straightforward request: "Let's create an Astro.build website entirely with AI." We decided to use a modern tech stack including Node SSR, Tailwind, Markdown, and ReactJS. The vision was clear - we wanted to create the best possible portfolio website while documenting every step of our AI collaboration.
+The journey started with a straightforward request: "Let's create an Astro.build website entirely with AI." We decided to use a modern tech stack including Node SSR, Tailwind, Markdown, and ReactJS. The vision was clear - we wanted to create the best possible website while documenting every step of our AI collaboration.
 
 ## Design Decisions
 
@@ -60,7 +60,7 @@ The project structure came together piece by piece. We set up:
 
 ## The Result
 
-The initial setup resulted in a clean, modern foundation for our portfolio site. The homepage features:
+The initial setup resulted in a clean, modern foundation for our site. The homepage features:
 - An eye-catching animated gradient title
 - Clear sections explaining the project's AI-driven nature
 - A well-organized tech stack presentation
@@ -86,7 +86,7 @@ The tiles provide a visual way to track our progress and make it easy for visito
 
 This is just the beginning. With our foundation in place, we're ready to:
 - Add more interactive features
-- Develop the portfolio section
+- Develop the website
 - Create a blog component
 - Implement dark mode
 - Add more dynamic elements
