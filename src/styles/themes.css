@@ -1,18 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.animated-gradient-text {
+    background: linear-gradient(300deg,
+            #4c1d95,
+            /* deep purple */
+            #7c3aed,
+            /* violet */
+            #a855f7,
+            /* purple */
+            #4c1d95
+            /* deep purple */
+        );
+    background-size: 240% 240%;
+    animation: gradient-animation 12s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-@layer utilities {
-    .text-text {
-        color: var(--text);
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
     }
 
-    .text-text-muted {
-        color: var(--text-muted);
+    50% {
+        background-position: 100% 50%;
     }
 
-    .text-accent {
-        color: var(--accent);
+    100% {
+        background-position: 0% 50%;
     }
 }
 
@@ -30,10 +44,10 @@ body * {
 /* Default Theme */
 :root {
     --background: #ffffff;
-    --text: #1a1a1a;
-    --text-muted: #666666;
+    --text: #111827;
+    --text-muted: #4B5563;
     --accent: #7C3AED;
-    --accent-muted: #4C1D95;
+    --accent-bg: #7C3AED;
     --border: #E5E7EB;
     --card-bg: #ffffff;
     --grid-color: #f0f0f0;
@@ -74,10 +88,10 @@ body * {
 /* Dark Theme */
 [data-theme="dark"] {
     --background: #111111;
-    --text: #ffffff;
-    --text-muted: #a0a0a0;
-    --accent: #A855F7;
-    --accent-muted: #7C3AED;
+    --text: #F9FAFB;
+    --text-muted: #9CA3AF;
+    --accent: #A78BFA;
+    --accent-bg: #7C3AED;
     --border: #2a2a2a;
     --card-bg: #1a1a1a;
     --grid-color: #222222;
@@ -110,15 +124,19 @@ body * {
     --input-text: #ffffff !important;
     --input-placeholder: #6B7280 !important;
     --input-focus-ring: #7C3AED !important;
+    background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
 }
 
 /* High Contrast Theme */
 [data-theme="high-contrast"] {
     --background: #000000;
-    --text: #ffffff;
-    --text-muted: #ffffff;
-    --accent: #A855F7;
-    --accent-muted: #7C3AED;
+    --text: #FFFFFF;
+    --text-muted: #D1D5DB;
+    --accent: #FEF08A;
+    --accent-bg: #854D0E;
     --border: #ffffff;
     --card-bg: #000000;
     --grid-color: transparent;
@@ -180,15 +198,12 @@ body * {
 [data-theme="terminal"] {
     --background: #0C0C0C;
     --text: #00FF00;
-    /* Bright terminal green */
-    --text-muted: #00B300;
-    /* Slightly dimmer green */
+    --text-muted: #00BB00;
     --accent: #00FF00;
-    --accent-muted: #00B300;
+    --accent-bg: #008800;
     --border: #00FF00;
     --card-bg: #0C0C0C;
     --grid-color: transparent;
-    /* No grid in terminal theme */
     --code-bg: #000000;
     --code-text: #00FF00;
 

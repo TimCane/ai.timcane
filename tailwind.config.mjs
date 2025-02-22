@@ -3,6 +3,14 @@ export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     theme: {
         extend: {
+            textColor: {
+                text: 'var(--text)',
+                'text-muted': 'var(--text-muted)',
+                accent: 'var(--accent)',
+            },
+            backgroundColor: {
+                accent: 'var(--accent-bg)',
+            },
             backgroundImage: {
                 'grid-pattern': 'linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(to right, var(--grid-color) 1px, transparent 1px)',
             },
