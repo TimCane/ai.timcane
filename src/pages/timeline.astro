@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import CommandTimeline from "../components/CommandTimeline";
+
+const commands = await getCollection("commands");
+---
+
+<Layout title="Timeline - Tim Cane">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-8 animated-gradient-text">Timeline</h1>
+        <p class="text-xl text-text-muted mb-12">
+            Follow the journey of building this website, from the first commit
+            to the latest feature.
+        </p>
+
+        <CommandTimeline commands={commands} client:load />
+    </div>
+</Layout>

@@ -49,16 +49,28 @@ const allCategories = [
       `;
     } else {
       commandsGrid.innerHTML = filteredCommands
-        .map((command) => {
-          const date = new Date(command.data.date);
-          const formattedDate = date.toLocaleString("en-GB", {
-            day: "numeric",
-            month: "numeric",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          });
-          return `
+        .map(
+          (command: {
+            data: {
+              date: string | number | Date;
+              category: any;
+              title: any;
+              summary: any;
+              tags: any[];
+              filesChanged: string | any[];
+              codeSnippets: any;
+            };
+            slug: any;
+          }) => {
+            const date = new Date(command.data.date);
+            const formattedDate = date.toLocaleString("en-GB", {
+              day: "numeric",
+              month: "numeric",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            });
+            return `
             <a 
               href="/commands/${command.slug}"
               class="block bg-card border border-card-border rounded-2xl p-6 
@@ -84,7 +96,7 @@ const allCategories = [
                   <div class="flex flex-wrap gap-2">
                     ${command.data.tags
                       .map(
-                        (tag) => `
+                        (tag: any) => `
                       <span class="px-2 py-1 bg-tag-bg text-tag-text rounded-full text-sm
                                  group-hover:bg-tag-hover-bg group-hover:text-tag-hover-text 
                                  transition-colors">
@@ -112,7 +124,8 @@ const allCategories = [
               </div>
             </a>
           `;
-        })
+          },
+        )
         .join("");
     }
   }) as EventListener);
