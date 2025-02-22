@@ -3,6 +3,7 @@ import "../styles/global.css";
 import "../styles/prism.css";
 import "../styles/themes.css";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	title: string;
@@ -45,7 +46,10 @@ const { title, showHeader = true } = Astro.props;
 		}
 
 		<Navigation />
-		<slot />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 
 		<script>
 			import Prism from "prismjs";

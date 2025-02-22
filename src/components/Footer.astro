@@ -1,0 +1,75 @@
+---
+const currentYear = new Date().getFullYear();
+
+const links = [
+    {
+        title: "Navigation",
+        items: [
+            { label: "Home", href: "/" },
+            { label: "Commands", href: "/commands" },
+            { label: "Process", href: "/process" },
+        ],
+    },
+    {
+        title: "Social",
+        items: [
+            { label: "GitHub", href: "https://github.com/timcane" },
+            { label: "Twitter", href: "https://twitter.com/timcane" },
+            { label: "LinkedIn", href: "https://linkedin.com/in/timcane" },
+        ],
+    },
+    {
+        title: "Resources",
+        items: [
+            { label: "Anthropic", href: "https://www.anthropic.com/" },
+            { label: "Claude", href: "https://claude.ai/" },
+            { label: "Astro", href: "https://astro.build/" },
+        ],
+    },
+];
+---
+
+<footer class="mt-24">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+            {
+                links.map((section) => (
+                    <div>
+                        <h3 class="font-semibold text-text mb-4">
+                            {section.title}
+                        </h3>
+                        <ul class="space-y-2">
+                            {section.items.map((item) => (
+                                <li>
+                                    <a
+                                        href={item.href}
+                                        class="text-text-muted hover:text-accent transition-colors"
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-text-muted mb-4 md:mb-0">
+                © {currentYear} Tim Cane. Built with 💜 and AI.
+            </p>
+
+            <div class="flex items-center gap-2 text-text-muted">
+                <span class="text-sm">Powered by</span>
+                <a
+                    href="https://www.anthropic.com/claude"
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tag-bg text-tag-text hover:bg-tag-hover-bg hover:text-tag-hover-text transition-colors"
+                >
+                    <span class="text-lg">🤖</span>
+                    <span class="font-medium">Claude</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

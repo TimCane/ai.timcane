@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProcessFlow from "../components/ProcessFlow";
+---
+
+<Layout title="Process - Tim Cane">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4 animated-gradient-text">
+                How It Works
+            </h1>
+            <p class="text-xl text-gray-600">
+                Explore the interactive process of how AI helps build this
+                website
+            </p>
+        </div>
+
+        <ProcessFlow client:load />
+
+        <div class="mt-12 text-center">
+            <p class="text-gray-600">
+                Click on any step to see the process in action!
+            </p>
+        </div>
+    </div>
+</Layout>
+

@@ -62,7 +62,7 @@ body * {
     --accent-muted: #7C3AED;
     --border: #2a2a2a;
     --card-bg: #1a1a1a;
-    --grid-color: #1a1a1a;
+    --grid-color: #222222;
     --code-bg: #000000;
     --code-text: #d6deeb;
     --tag-bg: #2a2a2a;
@@ -92,6 +92,10 @@ body * {
     --input-text: #ffffff !important;
     --input-placeholder: #6B7280 !important;
     --input-focus-ring: #7C3AED !important;
+    background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
 }
 
 /* High Contrast Theme */
