@@ -1,0 +1,454 @@
+/* Base transitions for theme switching */
+:root {
+    --transition-duration: 20ms;
+}
+
+body * {
+    transition: background-color var(--transition-duration) ease-in-out,
+        border-color var(--transition-duration) ease-in-out,
+        color var(--transition-duration) ease-in-out;
+}
+
+/* Default Theme */
+:root {
+    --background: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #666666;
+    --accent: #7C3AED;
+    --accent-muted: #4C1D95;
+    --border: #E5E7EB;
+    --card-bg: #ffffff;
+    --grid-color: #f0f0f0;
+    --code-bg: #1a1a1a;
+    --code-text: #d6deeb;
+    --gradient-start: #4C1D95;
+    --gradient-mid: #7C3AED;
+    --gradient-end: #8B5CF6;
+    --tag-bg: #f3f4f6;
+    --tag-text: #666666;
+    --tag-hover-bg: #f3e8ff;
+    --tag-hover-text: #7C3AED;
+    --prose-body: #374151;
+    --prose-headings: #111827;
+    --prose-links: #7C3AED;
+    --prose-bold: #111827;
+    --prose-counters: #6B7280;
+    --prose-bullets: #D1D5DB;
+    --prose-hr: #E5E7EB;
+    --prose-quotes: #111827;
+    --prose-quote-borders: #E5E7EB;
+    --prose-captions: #6B7280;
+    --prose-code: #111827;
+    --prose-pre-code: #D1D5DB;
+    --prose-pre-bg: #1a1a1a;
+    --prose-th-borders: #D1D5DB;
+    --prose-td-borders: #E5E7EB;
+    --prose-code-inline-bg: #1a1a1a;
+    --prose-code-inline-text: #d6deeb;
+    --prose-pre-text: #d6deeb;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --background: #111111;
+    --text: #ffffff;
+    --text-muted: #a0a0a0;
+    --accent: #A855F7;
+    --accent-muted: #7C3AED;
+    --border: #2a2a2a;
+    --card-bg: #1a1a1a;
+    --grid-color: #1a1a1a;
+    --code-bg: #000000;
+    --code-text: #d6deeb;
+    --tag-bg: #2a2a2a;
+    --tag-text: #d1d5db;
+    --tag-hover-bg: #3b2a4d;
+    --tag-hover-text: #A855F7;
+    --prose-body: #E5E7EB;
+    --prose-headings: #FFFFFF;
+    --prose-links: #A855F7;
+    --prose-bold: #FFFFFF;
+    --prose-counters: #D1D5DB;
+    --prose-bullets: #6B7280;
+    --prose-hr: #374151;
+    --prose-quotes: #E5E7EB;
+    --prose-quote-borders: #4B5563;
+    --prose-captions: #D1D5DB;
+    --prose-code: #FFFFFF;
+    --prose-pre-code: #E5E7EB;
+    --prose-pre-bg: #000000;
+    --prose-th-borders: #4B5563;
+    --prose-td-borders: #374151;
+    --prose-code-inline-bg: #000000;
+    --prose-code-inline-text: #d6deeb;
+    --prose-pre-text: #d6deeb;
+}
+
+/* High Contrast Theme */
+[data-theme="high-contrast"] {
+    --background: #000000;
+    --text: #ffffff;
+    --text-muted: #ffffff;
+    --accent: #A855F7;
+    --accent-muted: #7C3AED;
+    --border: #ffffff;
+    --card-bg: #000000;
+    --grid-color: transparent;
+    --code-bg: #ffffff;
+    --code-text: #000000;
+    --tag-bg: #000000;
+    --tag-text: #ffffff;
+    --tag-hover-bg: #A855F7;
+    --tag-hover-text: #ffffff;
+    --gradient-start: #4C1D95;
+    --gradient-mid: #7C3AED;
+    --gradient-end: #8B5CF6;
+    --prose-body: #ffffff;
+    --prose-headings: #ffffff;
+    --prose-links: #A855F7;
+    --prose-bold: #ffffff;
+    --prose-counters: #ffffff;
+    --prose-bullets: #ffffff;
+    --prose-hr: #ffffff;
+    --prose-quotes: #ffffff;
+    --prose-quote-borders: #ffffff;
+    --prose-captions: #ffffff;
+    --prose-code: #000000;
+    --prose-code-inline-bg: #ffffff;
+    --prose-code-inline-text: #000000;
+    --prose-pre-bg: #ffffff;
+    --prose-pre-text: #000000;
+    --prose-th-borders: #ffffff;
+    --prose-td-borders: #ffffff;
+}
+
+/* High contrast text overrides */
+[data-theme="high-contrast"] .text-gray-500,
+[data-theme="high-contrast"] .text-gray-600,
+[data-theme="high-contrast"] .text-gray-700,
+[data-theme="high-contrast"] .text-gray-800,
+[data-theme="high-contrast"] .text-gray-900 {
+    color: #ffffff !important;
+}
+
+[data-theme="high-contrast"] .hover\:text-gray-900:hover {
+    color: #ffffff !important;
+}
+
+[data-theme="high-contrast"] .prose {
+    color: #ffffff !important;
+}
+
+[data-theme="high-contrast"] .prose p,
+[data-theme="high-contrast"] .prose li,
+[data-theme="high-contrast"] .prose strong,
+[data-theme="high-contrast"] .prose h1,
+[data-theme="high-contrast"] .prose h2,
+[data-theme="high-contrast"] .prose h3,
+[data-theme="high-contrast"] .prose h4,
+[data-theme="high-contrast"] .prose h5,
+[data-theme="high-contrast"] .prose h6 {
+    color: #ffffff !important;
+}
+
+/* Terminal Theme */
+[data-theme="terminal"] {
+    --background: #0C0C0C;
+    --text: #00FF00;
+    /* Bright terminal green */
+    --text-muted: #00B300;
+    /* Slightly dimmer green */
+    --accent: #00FF00;
+    --accent-muted: #00B300;
+    --border: #00FF00;
+    --card-bg: #0C0C0C;
+    --grid-color: transparent;
+    /* No grid in terminal theme */
+    --code-bg: #000000;
+    --code-text: #00FF00;
+
+    /* Tag colors */
+    --tag-bg: #000000;
+    --tag-text: #00FF00;
+    --tag-hover-bg: #003300;
+    --tag-hover-text: #00FF00;
+
+    /* Prose styles */
+    --prose-body: #00FF00;
+    --prose-headings: #00FF00;
+    --prose-links: #00FF00;
+    --prose-bold: #00FF00;
+    --prose-counters: #00FF00;
+    --prose-bullets: #00FF00;
+    --prose-hr: #00FF00;
+    --prose-quotes: #00FF00;
+    --prose-quote-borders: #00FF00;
+    --prose-captions: #00B300;
+    --prose-code: #00FF00;
+    --prose-code-inline-bg: #000000;
+    --prose-code-inline-text: #00FF00;
+    --prose-pre-bg: #000000;
+    --prose-pre-text: #00FF00;
+    --prose-th-borders: #00FF00;
+    --prose-td-borders: #00B300;
+
+    /* Gradient colors */
+    --gradient-start: #00B300;
+    --gradient-mid: #00FF00;
+    --gradient-end: #00B300;
+
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Terminal theme text overrides */
+[data-theme="terminal"] .text-gray-500,
+[data-theme="terminal"] .text-gray-600,
+[data-theme="terminal"] .text-gray-700,
+[data-theme="terminal"] .text-gray-800,
+[data-theme="terminal"] .text-gray-900 {
+    color: #00FF00 !important;
+}
+
+[data-theme="terminal"] .hover\:text-gray-900:hover {
+    color: #00FF00 !important;
+}
+
+/* Terminal theme specific overrides */
+[data-theme="terminal"] .bg-grid-pattern {
+    background-image: none !important;
+}
+
+[data-theme="terminal"] * {
+    border-radius: 0 !important;
+    /* Remove rounded corners for terminal aesthetic */
+}
+
+/* Homepage specific overrides for terminal theme */
+[data-theme="terminal"] .text-xl.text-gray-600,
+[data-theme="terminal"] .text-2xl.text-gray-600,
+[data-theme="terminal"] .text-2xl.font-semibold.text-gray-600 {
+    color: #00FF00 !important;
+}
+
+[data-theme="terminal"] .text-gray-600 p {
+    color: #00FF00 !important;
+}
+
+/* Apply theme to elements */
+body {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.bg-grid-pattern {
+    background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px);
+}
+
+/* Card styles */
+.bg-white {
+    background-color: var(--card-bg) !important;
+}
+
+/* Border colors */
+.border-gray-100 {
+    border-color: var(--border) !important;
+}
+
+/* Text colors */
+.text-gray-500,
+.text-gray-600 {
+    color: var(--text-muted) !important;
+}
+
+.text-gray-900 {
+    color: var(--text) !important;
+}
+
+/* Code blocks */
+pre[class*="language-"],
+code[class*="language-"] {
+    background-color: var(--code-bg) !important;
+    color: var(--code-text) !important;
+}
+
+/* Gradient text styling */
+.animated-gradient-text {
+    background: linear-gradient(to right,
+            var(--gradient-start),
+            var(--gradient-mid),
+            var(--gradient-end),
+            var(--gradient-mid),
+            var(--gradient-start));
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    background-size: 200% auto !important;
+    animation: gradient 8s linear infinite !important;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* Theme switcher adjustments */
+[data-theme="terminal"] .bg-white {
+    border-width: 1px;
+}
+
+[data-theme="high-contrast"] .bg-white {
+    border-width: 2px;
+}
+
+/* Prose adjustments */
+.prose {
+    color: var(--prose-body) !important;
+}
+
+.prose p {
+    color: var(--prose-body) !important;
+}
+
+.prose-lg p {
+    color: var(--prose-body) !important;
+}
+
+.prose p.lead {
+    color: var(--prose-body) !important;
+}
+
+.prose-headings\:text-gray-900 p {
+    color: var(--prose-body) !important;
+}
+
+.prose-p\:text-gray-700 p {
+    color: var(--prose-body) !important;
+}
+
+.prose strong {
+    color: var(--prose-bold) !important;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    color: var(--prose-headings) !important;
+}
+
+.prose a {
+    color: var(--prose-links) !important;
+}
+
+.prose blockquote {
+    color: var(--prose-quotes) !important;
+    border-left-color: var(--prose-quote-borders) !important;
+}
+
+.prose figure figcaption {
+    color: var(--prose-captions) !important;
+}
+
+.prose code {
+    background-color: var(--prose-code-inline-bg) !important;
+    color: var(--prose-code-inline-text) !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 0.25rem !important;
+}
+
+.prose pre {
+    background-color: var(--prose-pre-bg) !important;
+    color: var(--prose-pre-text) !important;
+}
+
+.prose pre code {
+    background-color: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+}
+
+.prose thead th {
+    color: var(--prose-headings) !important;
+    border-bottom-color: var(--prose-th-borders) !important;
+}
+
+.prose tbody td {
+    border-bottom-color: var(--prose-td-borders) !important;
+}
+
+.prose ol>li::before {
+    color: var(--prose-counters) !important;
+}
+
+.prose ul>li::before {
+    background-color: var(--prose-bullets) !important;
+}
+
+.prose hr {
+    border-color: var(--prose-hr) !important;
+}
+
+/* Navigation adjustments */
+nav {
+    border-color: var(--border);
+}
+
+/* Hover states */
+.hover\:bg-gray-50:hover {
+    background-color: var(--border) !important;
+}
+
+.hover\:text-gray-900:hover {
+    color: var(--text) !important;
+}
+
+/* Tag styles */
+.bg-gray-50,
+.text-gray-600,
+.group-hover\:bg-purple-50,
+.group-hover\:text-purple-600 {
+    background-color: unset !important;
+    color: unset !important;
+}
+
+/* Apply new tag styles */
+.bg-tag-bg {
+    background-color: var(--tag-bg) !important;
+}
+
+.text-tag-text {
+    color: var(--tag-text) !important;
+}
+
+.group-hover\:bg-tag-hover-bg:hover {
+    background-color: var(--tag-hover-bg) !important;
+}
+
+.group-hover\:text-tag-hover-text:hover {
+    color: var(--tag-hover-text) !important;
+}
+
+/* Additional high contrast specific overrides */
+[data-theme="high-contrast"] .bg-grid-pattern {
+    background-image: none !important;
+}
+
+[data-theme="high-contrast"] .border {
+    border-width: 2px !important;
+}
+
+[data-theme="high-contrast"] .shadow-lg {
+    box-shadow: none !important;
+}
+
+[data-theme="high-contrast"] .hover\:shadow-lg:hover {
+    box-shadow: none !important;
+}

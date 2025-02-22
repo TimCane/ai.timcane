@@ -12,7 +12,7 @@ export default function CommandPostTile({ post, href }: Props) {
     return (
         <Tag
             href={href}
-            className="block bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 
+            className="block bg-white border border-gray-100 rounded-2xl p-6 
                        hover:shadow-lg transition-all group cursor-pointer"
         >
             <div className="flex flex-col h-full">
@@ -25,24 +25,27 @@ export default function CommandPostTile({ post, href }: Props) {
                         <span>•</span>
                         <span>{post.data.category}</span>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
                         {post.data.title}
                     </h3>
                 </div>
 
-                {/* Content */}
-                <div className="flex-grow">
-                    <p className="text-gray-600 mb-4 line-clamp-2 group-hover:text-gray-900 transition-colors">
-                        {post.data.summary}
-                    </p>
+                {/* Summary */}
+                <p className="text-gray-600 mb-6 flex-grow">
+                    {post.data.summary}
+                </p>
 
+                {/* Footer */}
+                <div className="space-y-4">
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2">
                         {post.data.tags.map(tag => (
                             <span
                                 key={tag}
-                                className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-sm 
-                                         group-hover:bg-gray-200 transition-colors"
+                                className="px-2 py-1 text-sm rounded-full
+                                         bg-tag-bg text-tag-text
+                                         group-hover:bg-tag-hover-bg group-hover:text-tag-hover-text 
+                                         transition-colors"
                             >
                                 {tag}
                             </span>

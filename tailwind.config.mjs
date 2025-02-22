@@ -4,10 +4,23 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-                'grid-pattern': 'linear-gradient(#f6f6f6fe 1px, transparent 1px), linear-gradient(to right, #f6f6f6fe 1px, transparent 1px)',
+                'grid-pattern': 'linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(to right, var(--grid-color) 1px, transparent 1px)',
             },
             backgroundSize: {
                 'grid': '2ch 2ch',
+            },
+            colors: {
+                gray: {
+                    100: 'var(--border)',
+                    500: 'var(--text-muted)',
+                    600: 'var(--text-muted)',
+                    900: 'var(--text)',
+                },
+                purple: {
+                    500: 'var(--accent)',
+                    600: 'var(--accent)',
+                    700: 'var(--accent-muted)',
+                },
             },
             typography: {
                 DEFAULT: {
@@ -20,12 +33,12 @@ export default {
                         },
                         'code': {
                             color: '#d6deeb',
-                            backgroundColor: '#24292e',
+                            backgroundColor: '#1a1a1a',
                             borderRadius: '0.25rem',
                             padding: '0.25rem 0.4rem',
                         },
                         'pre': {
-                            backgroundColor: '#24292e',
+                            backgroundColor: '#1a1a1a',
                             code: {
                                 backgroundColor: 'transparent',
                                 color: '#d6deeb',

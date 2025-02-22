@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import "../styles/prism.css";
+import "../styles/themes.css";
 import Navigation from "../components/Navigation.astro";
 
 interface Props {
@@ -20,11 +21,17 @@ const { title, showHeader = true } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- Immediate theme loading script -->
+		<script is:inline>
+			const savedTheme = localStorage.getItem("theme") || "default";
+			document.documentElement.setAttribute("data-theme", savedTheme);
+		</script>
 	</head>
 	<body class="min-h-screen bg-white bg-grid-pattern bg-grid">
 		{
 			showHeader && (
-				<div class="container mx-auto px-4 py-16 max-w-4xl">
+				<div class="container mx-auto px-4 py-8 max-w-4xl">
 					<div class="text-center space-y-4">
 						<h1 class="text-7xl font-bold animated-gradient-text tracking-tight">
 							AI + Tim Cane
