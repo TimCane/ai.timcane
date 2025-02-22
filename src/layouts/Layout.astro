@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import "../styles/prism.css";
+import Navigation from "../components/Navigation.astro";
 
 interface Props {
 	title: string;
@@ -35,22 +36,24 @@ const { title, showHeader = true } = Astro.props;
 				</div>
 			)
 		}
+
+		<Navigation />
 		<slot />
+
+		<script>
+			import Prism from "prismjs";
+			// Import additional languages
+			import "prismjs/components/prism-typescript";
+			import "prismjs/components/prism-javascript";
+			import "prismjs/components/prism-jsx";
+			import "prismjs/components/prism-tsx";
+			import "prismjs/components/prism-bash";
+			import "prismjs/components/prism-markdown";
+			import "prismjs/components/prism-json";
+			import "prismjs/components/prism-css";
+
+			// Highlight all code blocks
+			Prism.highlightAll();
+		</script>
 	</body>
 </html>
-
-<script>
-	import Prism from "prismjs";
-	// Import additional languages
-	import "prismjs/components/prism-typescript";
-	import "prismjs/components/prism-javascript";
-	import "prismjs/components/prism-jsx";
-	import "prismjs/components/prism-tsx";
-	import "prismjs/components/prism-bash";
-	import "prismjs/components/prism-markdown";
-	import "prismjs/components/prism-json";
-	import "prismjs/components/prism-css";
-
-	// Highlight all code blocks
-	Prism.highlightAll();
-</script>

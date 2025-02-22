@@ -14,7 +14,7 @@ const sortedPosts = commandPosts.sort(
 
 <Layout title="AI + Tim Cane">
 	<main class="container mx-auto px-4 py-8 max-w-4xl">
-		<div class="space-y-8">
+		<div class="space-y-16">
 			<p
 				class="text-xl text-gray-600 max-w-2xl mx-auto text-center leading-relaxed"
 			>
@@ -23,22 +23,19 @@ const sortedPosts = commandPosts.sort(
 				generated through AI assistance.
 			</p>
 
-			<div
-				class="bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-8 shadow-sm"
-			>
+			<section>
 				<h2 class="text-3xl font-bold mb-8 animated-gradient-text">
 					About This Project
 				</h2>
-
-				<div class="grid md:grid-cols-2 gap-6">
-					<div class="space-y-4">
-						<h3 class="text-xl font-semibold text-gray-800">
+				<div class="grid md:grid-cols-2 gap-8">
+					<div
+						class="bg-white border border-gray-100 rounded-2xl p-6"
+					>
+						<h3 class="text-xl font-semibold text-gray-800 mb-4">
 							AI Technologies Used
 						</h3>
-						<div class="space-y-3">
-							<div
-								class="p-4 bg-white/50 rounded-lg border border-gray-100"
-							>
+						<div class="space-y-4">
+							<div class="border-b border-gray-100 pb-4">
 								<h4 class="font-semibold text-gray-800">
 									Claude 3.5 Sonnet
 								</h4>
@@ -46,9 +43,7 @@ const sortedPosts = commandPosts.sort(
 									Primary conversation and code generation
 								</p>
 							</div>
-							<div
-								class="p-4 bg-white/50 rounded-lg border border-gray-100"
-							>
+							<div class="pb-4">
 								<h4 class="font-semibold text-gray-800">
 									Cursor
 								</h4>
@@ -59,11 +54,13 @@ const sortedPosts = commandPosts.sort(
 						</div>
 					</div>
 
-					<div class="space-y-4">
-						<h3 class="text-xl font-semibold text-gray-800">
+					<div
+						class="bg-white border border-gray-100 rounded-2xl p-6"
+					>
+						<h3 class="text-xl font-semibold text-gray-800 mb-4">
 							Tech Stack
 						</h3>
-						<div class="space-y-3">
+						<div class="space-y-4">
 							{
 								[
 									{
@@ -82,8 +79,14 @@ const sortedPosts = commandPosts.sort(
 										name: "Markdown",
 										desc: "Content management and documentation",
 									},
-								].map((tech) => (
-									<div class="p-4 bg-white/50 rounded-lg border border-gray-100">
+								].map((tech, index, array) => (
+									<div
+										class:list={[
+											"pb-4",
+											index !== array.length - 1 &&
+												"border-b border-gray-100",
+										]}
+									>
 										<h4 class="font-semibold text-gray-800">
 											{tech.name}
 										</h4>
@@ -94,7 +97,7 @@ const sortedPosts = commandPosts.sort(
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 			<section>
 				<h2 class="text-3xl font-bold mb-8 animated-gradient-text">

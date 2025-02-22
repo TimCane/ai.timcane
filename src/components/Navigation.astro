@@ -1,0 +1,103 @@
+---
+const links = [
+    { href: "/", label: "Home" },
+    { href: "/commands", label: "Commands" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="border-y border-gray-100">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="flex items-center justify-center h-14">
+            <!-- Desktop Navigation -->
+            <div class="hidden sm:flex sm:items-center sm:space-x-12">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            class:list={[
+                                "text-lg font-medium transition-all relative group",
+                                currentPath === link.href
+                                    ? "animated-gradient-text"
+                                    : "text-gray-600 hover:text-gray-900",
+                            ]}
+                        >
+                            {link.label}
+                            <span
+                                class:list={[
+                                    "absolute -bottom-[1.5px] left-0 w-full h-[2px] rounded-full transition-all duration-300",
+                                    currentPath === link.href
+                                        ? "bg-gradient-to-r from-[#4c1d95] via-[#7c3aed] to-[#4c1d95] bg-[length:200%_200%]"
+                                        : "bg-purple-500 scale-x-0 group-hover:scale-x-100",
+                                ]}
+                            />
+                        </a>
+                    ))
+                }
+            </div>
+
+            <!-- Mobile Navigation Button -->
+            <button
+                id="mobile-menu-button"
+                class="sm:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div
+            id="mobile-menu"
+            class="hidden sm:hidden py-4 border-t border-gray-100"
+        >
+            <div class="flex flex-col items-center space-y-4">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            class:list={[
+                                "text-lg font-medium transition-colors px-4 py-2 rounded-lg",
+                                currentPath === link.href
+                                    ? "animated-gradient-text"
+                                    : "text-gray-600 hover:text-gray-900",
+                            ]}
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", () => {
+            const isHidden = mobileMenu.classList.contains("hidden");
+            mobileMenu.classList.toggle("hidden", !isHidden);
+        });
+    }
+</script>
+
+<style>
+    .animated-gradient-text {
+        background-size: 200% 200%;
+    }
+</style>
