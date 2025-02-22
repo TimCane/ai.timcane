@@ -93,7 +93,7 @@ export default function ProcessFlow() {
 
     return (
         <div className="relative py-20 mx-auto max-w-4xl">
-            {/* Example Display - Made sticky */}
+            {/* Example Display */}
             <div
                 className={`
                     sticky top-4 mb-8 z-10
@@ -102,12 +102,12 @@ export default function ProcessFlow() {
                 `}
             >
                 {activeStepData && (
-                    <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-lg">
+                    <div className="bg-card border border-card-border rounded-xl p-6 shadow-lg">
                         <div className="flex items-center gap-2 mb-4">
                             <span className="text-2xl">{activeStepData.icon}</span>
-                            <h4 className="text-lg font-semibold text-gray-900">{activeStepData.title}</h4>
+                            <h4 className="text-lg font-semibold text-text">{activeStepData.title}</h4>
                         </div>
-                        <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm text-gray-700 whitespace-pre-wrap">
+                        <div className="bg-card-alt rounded-lg p-4 font-mono text-sm text-text-muted whitespace-pre-wrap">
                             {activeStepData.example}
                         </div>
                     </div>
@@ -119,13 +119,12 @@ export default function ProcessFlow() {
 
             {/* Steps */}
             <div className="relative">
-                {steps.map((step, index) => (
+                {steps.map((step) => (
                     <div
                         key={step.id}
                         className={`flex items-center gap-4 mb-16 ${step.position === 'top' ? 'flex-row' : 'flex-row-reverse'
                             }`}
                     >
-                        {/* Content */}
                         <div
                             className={`flex-1 ${step.position === 'top' ? 'text-right' : 'text-left'
                                 }`}
@@ -136,10 +135,10 @@ export default function ProcessFlow() {
                                     }`}
                             >
                                 <div className="text-2xl mb-1">{step.icon}</div>
-                                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+                                <h3 className="text-lg font-semibold text-text group-hover:text-accent transition-colors">
                                     {step.title}
                                 </h3>
-                                <p className="text-gray-600 max-w-xs">
+                                <p className="text-text-muted max-w-xs">
                                     {step.description}
                                 </p>
                             </button>

@@ -16,7 +16,7 @@ const sortedPosts = commandPosts.sort(
 	<main class="container mx-auto px-4 py-8 max-w-4xl">
 		<div class="space-y-16">
 			<p
-				class="text-xl text-gray-600 max-w-2xl mx-auto text-center leading-relaxed"
+				class="text-xl text-text-muted max-w-2xl mx-auto text-center leading-relaxed"
 			>
 				This entire website was created through conversation with AI.
 				Every line of code, every design decision, and every word was
@@ -29,25 +29,25 @@ const sortedPosts = commandPosts.sort(
 				</h2>
 				<div class="grid md:grid-cols-2 gap-8">
 					<div
-						class="bg-white border border-gray-100 rounded-2xl p-6"
+						class="bg-white border border-card-border rounded-2xl p-6"
 					>
-						<h3 class="text-xl font-semibold text-gray-800 mb-4">
+						<h3
+							class="text-xl font-semibold text-text group-hover:text-accent transition-colors"
+						>
 							AI Technologies Used
 						</h3>
 						<div class="space-y-4">
-							<div class="border-b border-gray-100 pb-4">
-								<h4 class="font-semibold text-gray-800">
+							<div class="border-b border-card-border pb-4">
+								<h4 class="font-semibold text-text">
 									Claude 3.5 Sonnet
 								</h4>
-								<p class="text-gray-600">
+								<p class="text-text-muted">
 									Primary conversation and code generation
 								</p>
 							</div>
 							<div class="pb-4">
-								<h4 class="font-semibold text-gray-800">
-									Cursor
-								</h4>
-								<p class="text-gray-600">
+								<h4 class="font-semibold text-text">Cursor</h4>
+								<p class="text-text-muted">
 									AI-powered development environment
 								</p>
 							</div>
@@ -55,9 +55,11 @@ const sortedPosts = commandPosts.sort(
 					</div>
 
 					<div
-						class="bg-white border border-gray-100 rounded-2xl p-6"
+						class="bg-white border border-card-border rounded-2xl p-6"
 					>
-						<h3 class="text-xl font-semibold text-gray-800 mb-4">
+						<h3
+							class="text-xl font-semibold text-text group-hover:text-accent transition-colors"
+						>
 							Tech Stack
 						</h3>
 						<div class="space-y-4">
@@ -84,13 +86,15 @@ const sortedPosts = commandPosts.sort(
 										class:list={[
 											"pb-4",
 											index !== array.length - 1 &&
-												"border-b border-gray-100",
+												"border-b border-card-border",
 										]}
 									>
-										<h4 class="font-semibold text-gray-800">
+										<h4 class="font-semibold text-text">
 											{tech.name}
 										</h4>
-										<p class="text-gray-600">{tech.desc}</p>
+										<p class="text-text-muted">
+											{tech.desc}
+										</p>
 									</div>
 								))
 							}

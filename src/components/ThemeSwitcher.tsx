@@ -21,7 +21,7 @@ export default function ThemeSwitcher() {
         <div className="relative">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-lg font-medium transition-all relative group text-gray-600 hover:text-gray-900"
+                className="text-lg font-medium transition-all relative group text-text-muted hover:text-text"
                 aria-label="Theme switcher"
             >
                 <span className="flex items-center gap-2">
@@ -31,18 +31,18 @@ export default function ThemeSwitcher() {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-56 rounded-lg border border-gray-100 bg-white shadow-lg py-2 z-50">
+                <div className="absolute right-0 mt-2 w-56 rounded-lg border border-card-border bg-white shadow-lg py-2 z-50">
                     {themes.map(t => (
                         <button
                             key={t.id}
                             onClick={() => handleThemeChange(t.id)}
-                            className={`w-full px-4 py-2 text-left hover:bg-gray-50 flex items-center gap-2 ${theme === t.id ? 'text-purple-600' : 'text-gray-600'
+                            className={`w-full px-4 py-2 text-left hover:bg-theme-bg flex items-center gap-2 ${theme === t.id ? 'text-purple-600' : 'text-text-muted'
                                 }`}
                         >
                             <span className="text-lg">{t.icon}</span>
                             <div>
                                 <div className="font-medium">{t.name}</div>
-                                <div className="text-sm text-gray-500">{t.description}</div>
+                                <div className="text-sm text-text-muted">{t.description}</div>
                             </div>
                         </button>
                     ))}

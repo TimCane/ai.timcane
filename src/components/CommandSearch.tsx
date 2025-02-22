@@ -47,11 +47,11 @@ export default function CommandSearch({ commands }: Props) {
                     }}
                     className="w-full px-4 py-2 rounded-lg 
                      bg-input-bg border border-input-border
-                     text-input-text placeholder:text-input-placeholder
+                     text-text placeholder:text-text-muted
                      focus:outline-none focus:ring-2 focus:ring-input-focus-ring"
                 />
                 <svg
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-input-placeholder"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-text-muted"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ export default function CommandSearch({ commands }: Props) {
                         }}
                         className="w-full px-4 py-2 rounded-lg 
                        bg-input-bg border border-input-border
-                       text-input-text
+                       text-text
                        focus:outline-none focus:ring-2 focus:ring-input-focus-ring"
                     >
                         <option value="">All Tags</option>
@@ -99,7 +99,7 @@ export default function CommandSearch({ commands }: Props) {
                         }}
                         className="w-full px-4 py-2 rounded-lg 
                        bg-input-bg border border-input-border
-                       text-input-text
+                       text-text
                        focus:outline-none focus:ring-2 focus:ring-input-focus-ring"
                     >
                         <option value="">All Categories</option>

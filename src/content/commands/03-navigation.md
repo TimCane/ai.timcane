@@ -48,7 +48,7 @@ While implementing the navigation, we noticed some inconsistencies in our design
 ### Visual Language
 We established a more consistent visual language across the site:
 - Solid white backgrounds for card elements
-- Subtle gray borders (`border-gray-100`)
+- Subtle gray borders (`border-card-border`)
 - Rounded corners (`rounded-2xl`)
 - Consistent padding and spacing
 - Clean internal dividers

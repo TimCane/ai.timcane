@@ -23,7 +23,7 @@ const currentPath = Astro.url.pathname;
                                 "text-lg font-medium transition-all relative group",
                                 currentPath === link.href
                                     ? "animated-gradient-text"
-                                    : "text-gray-600 hover:text-gray-900",
+                                    : "text-text-muted hover:text-text",
                             ]}
                         >
                             {link.label}
@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
             <!-- Mobile Navigation Button -->
             <button
                 id="mobile-menu-button"
-                class="sm:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                class="sm:hidden p-2 rounded-md text-text-muted hover:text-text focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
                 <span class="sr-only">Open main menu</span>
                 <svg
@@ -77,7 +77,7 @@ const currentPath = Astro.url.pathname;
                                 "text-lg font-medium transition-colors px-4 py-2 rounded-lg",
                                 currentPath === link.href
                                     ? "animated-gradient-text"
-                                    : "text-gray-600 hover:text-gray-900",
+                                    : "text-text-muted hover:text-text",
                             ]}
                         >
                             {link.label}
