@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CommandPostTile from "../components/CommandPostTile";
+import { getCollection } from "astro:content";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const commandPosts = await getCollection("commands");
+const sortedPosts = commandPosts.sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout title="AI + Tim Cane">
+	<main class="container mx-auto px-4 py-16 max-w-4xl">
+		<div class="text-center space-y-6 mb-16">
+			<h1
+				class="text-7xl font-bold animated-gradient-text tracking-tight"
+			>
+				AI + Tim Cane
+			</h1>
+			<p class="text-2xl font-semibold text-gray-600">
+				100% AI-Generated Portfolio
+			</p>
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+				This entire website was created through conversation with AI.
+				Every line of code, every design decision, and every word was
+				generated through AI assistance.
+			</p>
+		</div>
+
+		<div class="space-y-12">
+			<section
+				class="bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-8 shadow-sm"
+			>
+				<h2 class="text-3xl font-bold mb-8 animated-gradient-text">
+					About This Project
+				</h2>
+
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="space-y-4">
+						<h3 class="text-xl font-semibold text-gray-800">
+							AI Technologies Used
+						</h3>
+						<div class="space-y-3">
+							<div
+								class="flex items-start gap-3 p-4 bg-white/50 rounded-lg border border-gray-100"
+							>
+								<div class="flex-1">
+									<h4 class="font-semibold text-gray-800">
+										Claude 3.5 Sonnet
+									</h4>
+									<p class="text-gray-600">
+										Primary conversation and code generation
+									</p>
+								</div>
+							</div>
+							<div
+								class="flex items-start gap-3 p-4 bg-white/50 rounded-lg border border-gray-100"
+							>
+								<div class="flex-1">
+									<h4 class="font-semibold text-gray-800">
+										Cursor
+									</h4>
+									<p class="text-gray-600">
+										AI-powered development environment
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="space-y-4">
+						<h3 class="text-xl font-semibold text-gray-800">
+							Why AI-Generated?
+						</h3>
+						<div
+							class="p-4 bg-white/50 rounded-lg border border-gray-100"
+						>
+							<p class="text-gray-600 leading-relaxed">
+								This project explores the potential of AI-human
+								collaboration in web development. It
+								demonstrates how AI can assist in creating
+								sophisticated, well-structured websites while
+								maintaining creative control and personal touch.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section
+				class="bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-8 shadow-sm"
+			>
+				<h2 class="text-3xl font-bold mb-8 animated-gradient-text">
+					Tech Stack
+				</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					{
+						[
+							{
+								name: "Astro.build",
+								desc: "Modern static site generator optimized for speed",
+							},
+							{
+								name: "React",
+								desc: "Component library for interactive UI elements",
+							},
+							{
+								name: "Tailwind CSS",
+								desc: "Utility-first CSS framework for styling",
+							},
+							{
+								name: "Markdown",
+								desc: "Content management and documentation",
+							},
+						].map((tech) => (
+							<div class="p-4 bg-white/50 rounded-lg border border-gray-100">
+								<h3 class="font-semibold text-gray-800 mb-1">
+									{tech.name}
+								</h3>
+								<p class="text-gray-600">{tech.desc}</p>
+							</div>
+						))
+					}
+				</div>
+			</section>
+		</div>
+
+		<section class="container mx-auto px-4 py-16 max-w-4xl">
+			<h2 class="text-3xl font-bold mb-8 animated-gradient-text">
+				Building Process
+			</h2>
+			<div class="grid md:grid-cols-2 gap-6">
+				{sortedPosts.map((post) => <CommandPostTile post={post} />)}
+			</div>
+		</section>
+	</main>
+</Layout>
