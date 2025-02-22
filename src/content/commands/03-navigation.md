@@ -1,25 +1,16 @@
 ---
-title: "Adding Site Navigation and Refining Design Consistency"
-date: 2024-03-21
-summary: "Implementing a clean navigation system and improving overall design consistency across the site, featuring minimal design elements and better visual hierarchy."
-author: "Tim Cane + Claude"
-tags: 
-  - "feature"
-  - "navigation"
-  - "design"
-  - "responsive"
-  - "refactor"
-filesChanged:
-  - "src/layouts/Layout.astro"
-  - "src/components/Navigation.astro"
-  - "src/pages/index.astro"
-tools:
-  - "Claude 3.5 Sonnet"
-  - "Cursor"
-category: "feature"
+title: "Navigation"
+summary: "Adding a navigation bar and improving the overall layout."
+date: 2024-03-19T19:26:00
+category: "Feature"
+tags: ["Astro", "Layout", "Styling"]
 codeSnippets: 4
 aiPromptCount: 6
-prerequisites: ["02-command-pages"]
+filesChanged: [
+  "src/components/Navigation.astro",
+  "src/layouts/Layout.astro",
+  "src/styles/global.css"
+]
 ---
 
 # Adding Navigation and Refining Design

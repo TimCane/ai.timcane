@@ -1,10 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 import CommandPostTile from "../../components/CommandPostTile";
+import CommandSearch from "../../components/CommandSearch";
 
-const commands = await getCollection("commands");
-const sortedCommands = commands.sort(
+const commands = (await getCollection("commands")).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
@@ -15,22 +15,15 @@ const allCategories = [
 ];
 ---
 
-<Layout title="AI Commands - Tim Cane">
-    <main class="container mx-auto px-4 py-16 max-w-4xl">
-        <div class="text-center mb-12">
-            <h1
-                class="text-5xl font-bold animated-gradient-text tracking-tight mb-4"
-            >
-                AI Commands
-            </h1>
-            <p class="text-xl text-gray-600">
-                A chronological journey of our AI-driven development process
-            </p>
-        </div>
+<Layout title="Commands - Tim Cane">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-8 animated-gradient-text">Commands</h1>
 
-        <div class="grid md:grid-cols-2 gap-6">
+        <CommandSearch commands={commands} client:load />
+
+        <div id="commands-grid" class="grid gap-6">
             {
-                sortedCommands.map((command) => (
+                commands.map((command) => (
                     <CommandPostTile
                         post={command}
                         href={`/commands/${command.slug}`}
@@ -38,5 +31,85 @@ const allCategories = [
                 ))
             }
         </div>
-    </main>
+    </div>
 </Layout>
+
+<script>
+    // Client-side filtering
+    const commandsGrid = document.getElementById("commands-grid");
+    const originalHTML = commandsGrid?.innerHTML;
+
+    document.addEventListener("command-filter", ((event: CustomEvent) => {
+        if (!commandsGrid || !originalHTML) return;
+
+        const filteredCommands = event.detail;
+
+        if (filteredCommands.length === 0) {
+            commandsGrid.innerHTML = `
+        <div class="text-center py-12 text-gray-600">
+          No commands found. Try adjusting your search.
+        </div>
+      `;
+        } else {
+            commandsGrid.innerHTML = filteredCommands
+                .map((command) => {
+                    const date = new Date(command.data.date);
+                    return `
+            <a 
+              href="/commands/${command.slug}"
+              class="block bg-white border border-gray-100 rounded-2xl p-6 
+                     hover:shadow-lg transition-all group cursor-pointer"
+            >
+              <div class="flex flex-col h-full">
+                <div class="mb-4">
+                  <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                    <time datetime="${date.toISOString()}">
+                      ${date.toLocaleDateString()}
+                    </time>
+                    <span>•</span>
+                    <span>${command.data.category}</span>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+                    ${command.data.title}
+                  </h3>
+                </div>
+                <p class="text-gray-600 mb-6 flex-grow">
+                  ${command.data.summary}
+                </p>
+                <div class="space-y-4">
+                  <div class="flex flex-wrap gap-2">
+                    ${command.data.tags
+                        .map(
+                            (tag) => `
+                      <span class="px-2 py-1 bg-tag-bg text-tag-text rounded-full text-sm
+                                 group-hover:bg-tag-hover-bg group-hover:text-tag-hover-text 
+                                 transition-colors">
+                        ${tag}
+                      </span>
+                    `,
+                        )
+                        .join("")}
+                  </div>
+                  <div class="flex items-center gap-4 text-sm">
+                    <div class="flex items-center gap-1 text-gray-500">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                      </svg>
+                      <span>${command.data.filesChanged.length} files</span>
+                    </div>
+                    <div class="flex items-center gap-1 text-gray-500">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                      </svg>
+                      <span>${command.data.codeSnippets} snippets</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          `;
+                })
+                .join("");
+        }
+    }) as EventListener);
+</script>

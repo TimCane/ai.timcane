@@ -1,8 +1,8 @@
 ---
 title: "Theme Switcher"
 summary: "Adding a theme switcher component with multiple color schemes and persistent theme selection."
-date: 2024-03-19
-category: "feature"
+date: 2024-03-19T20:07:00
+category: "Feature"
 tags: ["React", "TypeScript", "Styling", "Accessibility"]
 codeSnippets: 8
 aiPromptCount: 12

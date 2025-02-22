@@ -46,6 +46,11 @@ body * {
     --prose-code-inline-bg: #1a1a1a;
     --prose-code-inline-text: #d6deeb;
     --prose-pre-text: #d6deeb;
+    --input-bg: #ffffff;
+    --input-border: #E5E7EB;
+    --input-text: #1a1a1a;
+    --input-placeholder: #9CA3AF;
+    --input-focus-ring: #7C3AED;
 }
 
 /* Dark Theme */
@@ -82,6 +87,11 @@ body * {
     --prose-code-inline-bg: #000000;
     --prose-code-inline-text: #d6deeb;
     --prose-pre-text: #d6deeb;
+    --input-bg: #111111 !important;
+    --input-border: #2a2a2a !important;
+    --input-text: #ffffff !important;
+    --input-placeholder: #6B7280 !important;
+    --input-focus-ring: #7C3AED !important;
 }
 
 /* High Contrast Theme */
@@ -120,6 +130,11 @@ body * {
     --prose-pre-text: #000000;
     --prose-th-borders: #ffffff;
     --prose-td-borders: #ffffff;
+    --input-bg: #000000 !important;
+    --input-border: #ffffff !important;
+    --input-text: #ffffff !important;
+    --input-placeholder: #ffffff !important;
+    --input-focus-ring: #A855F7 !important;
 }
 
 /* High contrast text overrides */
@@ -198,6 +213,11 @@ body * {
     --gradient-end: #00B300;
 
     font-family: 'Courier New', Courier, monospace;
+    --input-bg: #0C0C0C !important;
+    --input-border: #00FF00 !important;
+    --input-text: #00FF00 !important;
+    --input-placeholder: #00B300 !important;
+    --input-focus-ring: #00FF00 !important;
 }
 
 /* Terminal theme text overrides */
@@ -451,4 +471,21 @@ nav {
 
 [data-theme="high-contrast"] .hover\:shadow-lg:hover {
     box-shadow: none !important;
+}
+
+/* Add specific styles for inputs */
+input,
+select {
+    background-color: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--input-text) !important;
+}
+
+input::placeholder {
+    color: var(--input-placeholder) !important;
+}
+
+input:focus,
+select:focus {
+    --tw-ring-color: var(--input-focus-ring) !important;
 }

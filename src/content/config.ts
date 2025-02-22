@@ -17,15 +17,7 @@ const commandsCollection = defineCollection({
         // Additional metadata
         codeSnippets: z.number().optional(),
         aiPromptCount: z.number().optional(),
-        category: z.enum([
-            'setup',
-            'design',
-            'feature',
-            'bugfix',
-            'refactor',
-            'documentation',
-            'enhancement'
-        ]).default('enhancement'),
+        category: z.enum(['Setup', 'Feature', 'Bug Fix', 'Enhancement', 'Refactor']).default('Enhancement'),
 
         // Related content
         relatedPosts: z.array(z.string()).optional(),

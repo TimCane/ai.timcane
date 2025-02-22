@@ -1,29 +1,17 @@
 ---
-title: "Creating Command List and Detail Pages with Syntax Highlighting"
-date: 2024-03-21
-summary: "Implementation of pages to display our AI interaction history, featuring a list view of all commands and detailed individual command pages with enhanced code syntax highlighting."
-author: "Tim Cane + Claude"
-tags: 
-  - "feature"
-  - "pages"
-  - "routing"
-  - "markdown"
-  - "syntax"
-filesChanged:
-  - "src/pages/commands/index.astro"
-  - "src/pages/commands/[...slug].astro"
-  - "src/components/CommandPostTile.tsx"
-  - "src/layouts/Layout.astro"
-  - "src/styles/prism.css"
-  - "tailwind.config.mjs"
-  - "src/content/config.ts"
-tools:
-  - "Claude 3.5 Sonnet"
-  - "Cursor"
-category: "feature"
-codeSnippets: 8
-aiPromptCount: 12
-prerequisites: ["01-initial-setup"]
+title: "Command Pages"
+summary: "Creating the command collection and individual command pages."
+date: 2024-03-19T18:39:00
+category: "Feature"
+tags: ["Astro", "Markdown", "TypeScript"]
+codeSnippets: 5
+aiPromptCount: 7
+filesChanged: [
+  "src/content/config.ts",
+  "src/pages/commands/[...slug].astro",
+  "src/pages/commands/index.astro",
+  "src/components/CommandPostTile.tsx"
+]
 ---
 
 # Building Our Command Documentation System

@@ -1,26 +1,17 @@
 ---
-title: "Initial Setup: Building an AI-Generated Portfolio"
-date: 2024-03-21
-summary: "The beginning of an exciting journey to create a portfolio website entirely through AI collaboration. Starting with project setup, design decisions, and initial implementation."
-author: "Tim Cane + Claude"
-tags: 
-  - "setup"
-  - "design"
-  - "astro"
-  - "tailwind"
-filesChanged:
-  - "src/layouts/Layout.astro"
-  - "src/pages/index.astro"
-  - "src/styles/global.css"
-  - "src/content/config.ts"
-  - "astro.config.mjs"
-  - "tailwind.config.mjs"
-tools:
-  - "Claude 3.5 Sonnet"
-  - "Cursor"
-codeSnippets: 6
-aiPromptCount: 8
-category: "setup"
+title: "Initial Setup"
+summary: "Setting up the base Astro project with TypeScript and Tailwind CSS."
+date: 2024-03-19T18:02:00
+category: "Setup"
+tags: ["Astro", "TypeScript", "Tailwind"]
+codeSnippets: 3
+aiPromptCount: 5
+filesChanged: [
+  "package.json",
+  "astro.config.mjs",
+  "tsconfig.json",
+  "tailwind.config.mjs"
+]
 ---
 
 # The Beginning of Our AI Journey
