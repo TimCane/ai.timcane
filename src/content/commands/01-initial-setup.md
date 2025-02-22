@@ -3,23 +3,24 @@ title: "Initial Setup: Building an AI-Generated Portfolio"
 date: 2024-03-21
 summary: "The beginning of an exciting journey to create a portfolio website entirely through AI collaboration. Starting with project setup, design decisions, and initial implementation."
 author: "Tim Cane + Claude"
-duration: "45 minutes"
-difficulty: "Intermediate"
 tags: 
   - "setup"
   - "design"
   - "astro"
   - "tailwind"
 filesChanged:
-  - "astro.config.mjs"
-  - "tailwind.config.mjs"
-  - "src/content/config.ts"
   - "src/layouts/Layout.astro"
   - "src/pages/index.astro"
   - "src/styles/global.css"
+  - "src/content/config.ts"
+  - "astro.config.mjs"
+  - "tailwind.config.mjs"
 tools:
   - "Claude 3.5 Sonnet"
   - "Cursor"
+codeSnippets: 6
+aiPromptCount: 8
+category: "setup"
 ---
 
 # The Beginning of Our AI Journey

@@ -1,9 +1,14 @@
 .animated-gradient-text {
     background: linear-gradient(300deg,
-            #2563eb,
-            #4f46e5,
+            #4c1d95,
+            /* deep purple */
             #7c3aed,
-            #2563eb);
+            /* violet */
+            #a855f7,
+            /* purple */
+            #4c1d95
+            /* deep purple */
+        );
     background-size: 240% 240%;
     animation: gradient-animation 12s ease infinite;
     -webkit-background-clip: text;

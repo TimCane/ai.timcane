@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import CommandPostTile from "../../components/CommandPostTile";
+
+const commands = await getCollection("commands");
+const sortedCommands = commands.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+// Get unique tags and categories for filtering
+const allTags = [...new Set(commands.flatMap((command) => command.data.tags))];
+const allCategories = [
+    ...new Set(commands.map((command) => command.data.category)),
+];
+---
+
+<Layout title="AI Commands - Tim Cane">
+    <main class="container mx-auto px-4 py-16 max-w-4xl">
+        <div class="text-center mb-12">
+            <h1
+                class="text-5xl font-bold animated-gradient-text tracking-tight mb-4"
+            >
+                AI Commands
+            </h1>
+            <p class="text-xl text-gray-600">
+                A chronological journey of our AI-driven development process
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            {
+                sortedCommands.map((command) => (
+                    <CommandPostTile
+                        post={command}
+                        href={`/commands/${command.slug}`}
+                    />
+                ))
+            }
+        </div>
+    </main>
+</Layout>

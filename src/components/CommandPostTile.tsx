@@ -3,11 +3,18 @@ import { format } from 'date-fns';
 
 interface Props {
     post: CollectionEntry<'commands'>;
+    href?: string;
 }
 
-export default function CommandPostTile({ post }: Props) {
+export default function CommandPostTile({ post, href }: Props) {
+    const Tag = href ? 'a' : 'div';
+
     return (
-        <article className="bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all group">
+        <Tag
+            href={href}
+            className="block bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 
+                       hover:shadow-lg transition-all group cursor-pointer"
+        >
             <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="mb-4">
@@ -16,7 +23,7 @@ export default function CommandPostTile({ post }: Props) {
                             {format(post.data.date, 'MMM d, yyyy')}
                         </time>
                         <span>•</span>
-                        <span>{post.data.duration}</span>
+                        <span>{post.data.category}</span>
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                         {post.data.title}
@@ -25,7 +32,7 @@ export default function CommandPostTile({ post }: Props) {
 
                 {/* Content */}
                 <div className="flex-grow">
-                    <p className="text-gray-600 mb-4 line-clamp-2">
+                    <p className="text-gray-600 mb-4 line-clamp-2 group-hover:text-gray-900 transition-colors">
                         {post.data.summary}
                     </p>
 
@@ -34,7 +41,8 @@ export default function CommandPostTile({ post }: Props) {
                         {post.data.tags.map(tag => (
                             <span
                                 key={tag}
-                                className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
+                                className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-sm 
+                                         group-hover:bg-gray-200 transition-colors"
                             >
                                 {tag}
                             </span>
@@ -51,13 +59,13 @@ export default function CommandPostTile({ post }: Props) {
                         </div>
                         <div className="flex items-center gap-1 text-gray-500">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
-                            <span>{post.data.difficulty}</span>
+                            <span>{post.data.codeSnippets} snippets</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </article>
+        </Tag>
     );
 } 

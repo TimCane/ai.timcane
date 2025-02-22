@@ -9,7 +9,35 @@ export default {
             backgroundSize: {
                 'grid': '2ch 2ch',
             },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        'code::before': {
+                            content: '""'
+                        },
+                        'code::after': {
+                            content: '""'
+                        },
+                        'code': {
+                            color: '#d6deeb',
+                            backgroundColor: '#24292e',
+                            borderRadius: '0.25rem',
+                            padding: '0.25rem 0.4rem',
+                        },
+                        'pre': {
+                            backgroundColor: '#24292e',
+                            code: {
+                                backgroundColor: 'transparent',
+                                color: '#d6deeb',
+                                padding: '0',
+                            }
+                        }
+                    }
+                }
+            }
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 } 

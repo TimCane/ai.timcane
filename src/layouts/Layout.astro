@@ -1,11 +1,13 @@
 ---
 import "../styles/global.css";
+import "../styles/prism.css";
 
 interface Props {
 	title: string;
+	showHeader?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, showHeader = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,6 +21,36 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen bg-white bg-grid-pattern bg-grid">
+		{
+			showHeader && (
+				<div class="container mx-auto px-4 py-16 max-w-4xl">
+					<div class="text-center space-y-4">
+						<h1 class="text-7xl font-bold animated-gradient-text tracking-tight">
+							AI + Tim Cane
+						</h1>
+						<p class="text-2xl font-semibold text-gray-600">
+							100% AI-Generated Portfolio
+						</p>
+					</div>
+				</div>
+			)
+		}
 		<slot />
 	</body>
 </html>
+
+<script>
+	import Prism from "prismjs";
+	// Import additional languages
+	import "prismjs/components/prism-typescript";
+	import "prismjs/components/prism-javascript";
+	import "prismjs/components/prism-jsx";
+	import "prismjs/components/prism-tsx";
+	import "prismjs/components/prism-bash";
+	import "prismjs/components/prism-markdown";
+	import "prismjs/components/prism-json";
+	import "prismjs/components/prism-css";
+
+	// Highlight all code blocks
+	Prism.highlightAll();
+</script>
