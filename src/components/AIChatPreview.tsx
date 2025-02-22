@@ -5,26 +5,56 @@ interface Message {
     content: string;
 }
 
-const DEMO_CONVERSATION: Message[] = [
+const EXAMPLE_CONVERSATIONS: { title: string; messages: Message[] }[] = [
     {
-        role: 'user',
-        content: 'Can you help me create a theme switcher for my website?'
+        title: "Creating a Theme Switcher",
+        messages: [
+            { role: 'user', content: 'Can you help me create a theme switcher for my website?' },
+            { role: 'assistant', content: "I'd be happy to help you create a theme switcher! Let's build it with React and make it support multiple themes. We'll need to:" },
+            { role: 'assistant', content: "1. Create theme variables\n2. Build a theme selector component\n3. Use localStorage for persistence\n4. Add smooth transitions" },
+            { role: 'user', content: 'That sounds good! How should we start?' },
+            { role: 'assistant', content: "Let's begin by defining our theme variables in CSS. We'll create a clean system that's easy to extend later..." }
+        ]
     },
     {
-        role: 'assistant',
-        content: "I'd be happy to help you create a theme switcher! Let's build it with React and make it support multiple themes. We'll need to:"
+        title: "Building a Timeline",
+        messages: [
+            { role: 'user', content: 'I want to create a visual timeline showing the progression of features.' },
+            { role: 'assistant', content: "That's a great idea! A timeline can really help users understand the development journey. Let's create an interactive one with:" },
+            { role: 'assistant', content: "1. Alternating left/right layout\n2. Animated hover states\n3. Connection lines between events\n4. Theme-compatible styling" },
+            { role: 'user', content: 'I like the alternating layout idea. How do we implement that?' },
+            { role: 'assistant', content: "We can use CSS Grid and some clever positioning. Here's how we'll structure it..." }
+        ]
     },
     {
-        role: 'assistant',
-        content: "1. Create theme variables\n2. Build a theme selector component\n3. Use localStorage for persistence\n4. Add smooth transitions"
+        title: "Command Search System",
+        messages: [
+            { role: 'user', content: 'How can we add search and filtering to the commands page?' },
+            { role: 'assistant', content: "Let's build a robust search system that helps users find commands easily. We should include:" },
+            { role: 'assistant', content: "1. Full-text search\n2. Tag filtering\n3. Category selection\n4. Real-time updates" },
+            { role: 'user', content: 'Perfect! Should we use any specific libraries?' },
+            { role: 'assistant', content: "For this scale, we can build it custom without external dependencies. Let's start with the search input component..." }
+        ]
     },
     {
-        role: 'user',
-        content: 'That sounds good! How should we start?'
+        title: "Process Flow Diagram",
+        messages: [
+            { role: 'user', content: 'I need to visualize how the AI assistance process works.' },
+            { role: 'assistant', content: "A process flow diagram would be perfect for this! We can make it interactive to show each step clearly. Let's include:" },
+            { role: 'assistant', content: "1. Step-by-step visualization\n2. Example previews\n3. Animated transitions\n4. Clear connection lines" },
+            { role: 'user', content: 'Could we add hover states to show more details?' },
+            { role: 'assistant', content: "Absolutely! We can create a sticky preview section that updates as users hover over different steps..." }
+        ]
     },
     {
-        role: 'assistant',
-        content: "Let's begin by defining our theme variables in CSS. We'll create a clean system that's easy to extend later..."
+        title: "Chat Interface",
+        messages: [
+            { role: 'user', content: 'Can we show visitors how the AI chat actually works?' },
+            { role: 'assistant', content: "Great idea! We can create an interactive preview of our chat interface. Here's what we'll include:" },
+            { role: 'assistant', content: "1. Typing animations\n2. Message bubbles\n3. Theme integration\n4. Example conversations" },
+            { role: 'user', content: 'Love it! How do we handle the typing animation?' },
+            { role: 'assistant', content: "We'll use a character-by-character approach with React state management..." }
+        ]
     }
 ];
 
@@ -33,11 +63,16 @@ export default function AIChatPreview() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(false);
     const [currentText, setCurrentText] = useState('');
+    const [selectedConversation] = useState(() => {
+        // Randomly select a conversation on component mount
+        const randomIndex = Math.floor(Math.random() * EXAMPLE_CONVERSATIONS.length);
+        return EXAMPLE_CONVERSATIONS[randomIndex];
+    });
 
     useEffect(() => {
-        if (currentIndex >= DEMO_CONVERSATION.length) return;
+        if (currentIndex >= selectedConversation.messages.length) return;
 
-        const message = DEMO_CONVERSATION[currentIndex];
+        const message = selectedConversation.messages[currentIndex];
         let charIndex = 0;
 
         setIsTyping(true);
@@ -56,7 +91,7 @@ export default function AIChatPreview() {
         }, message.role === 'assistant' ? 30 : 10);
 
         return () => clearInterval(typingInterval);
-    }, [currentIndex]);
+    }, [currentIndex, selectedConversation]);
 
     return (
         <div className="border border-card-border rounded-xl overflow-hidden bg-card">
@@ -65,7 +100,7 @@ export default function AIChatPreview() {
                 <div className="flex items-center gap-2">
                     <span className="text-2xl">🤖</span>
                     <div>
-                        <h3 className="font-semibold text-text">AI Assistant</h3>
+                        <h3 className="font-semibold text-text">{selectedConversation.title}</h3>
                         <p className="text-sm text-text-muted">Powered by Claude</p>
                     </div>
                 </div>
